@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: 'book-catalog-service-ribbon'
+   
+server:
+  port: 9094

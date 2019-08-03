@@ -1,0 +1,13 @@
+spring:
+  profiles: no.eureka
+#  Setting the ribbon.eureka.enabled property to false explicitly disables the use of Eureka in Ribbon
+ribbon:
+    eureka:
+      enabled: false
+#The Ribbon client defaults to a configured server list
+book-info-service:
+    listOfServers: http://localhost:9092,http://localhost:9082
+   
+    
+ratings-data-service:
+    listOfServers: http://localhost:9093,http://localhost:9083

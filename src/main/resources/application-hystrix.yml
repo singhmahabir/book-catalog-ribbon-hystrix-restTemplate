@@ -1,0 +1,12 @@
+spring:
+  profiles: hystrix
+# http://localhost:9091/hystrix
+#To enable the Hystrix metrics stream, include a dependency on spring-boot-starter-actuator and set
+# management.endpoints.web.exposure.include: hystrix.stream. Doing so exposes the /actuator/hystrix.stream as a 
+# management endpoint
+#http://localhost:9091/actuator/hystrix.stream  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

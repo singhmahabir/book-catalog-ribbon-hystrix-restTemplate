@@ -1,0 +1,17 @@
+spring:
+  profiles: admin
+# If you are using Admin server and want to registered your application as Admin client then add below configuration. 
+
+  boot:
+    admin:
+      url: http://localhost:1111
+# below two properties are required when admin server is secured
+      username: admin
+      password: admin123 
+
+#logging:
+#  level:
+#    .: error
+#    org.springframework: ERROR
+#    singh.mahabir.bis: ERROR
+# If you are not using eureka or spring.cloud then put spring.port in application.yml
