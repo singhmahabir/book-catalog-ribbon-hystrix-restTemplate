@@ -1,0 +1,15 @@
+spring:
+  profiles: security
+  
+# Below properties is required when we are using basic Authorization
+  security:
+   user:
+    name: user
+# If we don’t configure the password using the predefined property spring.security.user.password and start the application,
+# we’ll notice that a default password is randomly generated and printed in the console log:
+# Using default security password: c8be15de-4488-4490-9dc6-fab3f91435c6
+    password: user
+client:
+  common:
+    username: user
+    password: user

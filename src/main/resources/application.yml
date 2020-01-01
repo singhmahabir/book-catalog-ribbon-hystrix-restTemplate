@@ -3,8 +3,10 @@ spring:
   profiles:
     active:
 #     active: eureka,hystrix
-     - eureka
-#     - hystrix
+#     - eureka
+     - ribbon
+     - hystrix
+     - security
 #  main:
 #    banner-mode: "off"
 
@@ -31,7 +33,7 @@ management:
         include: "*"
         exclude:
 #        - env
-        - beans
+#        - beans
 
 #logging:
 #  level:
@@ -59,6 +61,7 @@ eureka:
 # https://github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-eureka-client/src/main/java/org/springframework/cloud/netflix/eureka/EurekaInstanceConfigBean.java
   instance:
     hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
     preferIpAddress: true
     leaseRenewalIntervalInSeconds: 3
  

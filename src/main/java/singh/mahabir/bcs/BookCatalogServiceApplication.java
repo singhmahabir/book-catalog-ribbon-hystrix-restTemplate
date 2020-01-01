@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * Main class to start the book catalog service
- * 
+ *
  * @author Mahabir Singh
  *
  */
@@ -20,14 +20,14 @@ import org.springframework.web.client.RestTemplate;
  * By having "spring-cloud-starter-netflix-eureka-client" on the classpath your
  * application will automatically register with the Eureka Server
  * without @EnableDiscoveryClient
- * 
+ *
  * since 1.4.7.RELEASE
- * 
+ *
  * Upto 1.3.6.RELEASE we required @EnableDiscoveryClient
  */
 //@EnableDiscoveryClient
 /**
- * 
+ *
  * @EnableCircuitBreaker It is not required for fallback
  *
  */
@@ -35,25 +35,27 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrixDashboard
 public class BookCatalogServiceApplication {
 
-	/**
-	 * To call a end point one way to use RestTemplate
-	 * 
-	 * For that we need to create a bean and pass to SpringContaxt and we
-	 * can @Autowired when required
-	 * 
-	 * @return RestTemplate
-	 */
-	@Bean
-	@LoadBalanced // It is required to distribute the request using ribbon
-	public RestTemplate getRestTemplate() {
-		// This way we can set the time out into Rest Template
-		HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
-		clientHttpRequestFactory.setConnectTimeout(3000);
-		return new RestTemplate(clientHttpRequestFactory);
-	}
-	
-	public static void main(String[] args) {
-		SpringApplication.run(BookCatalogServiceApplication.class, args);
-	}
+    /**
+     * To call a end point one way to use RestTemplate
+     *
+     * For that we need to create a bean and pass to SpringContaxt and we
+     * can @Autowired when required
+     *
+     * @return RestTemplate
+     */
+    @Bean
+    @LoadBalanced // It is required to distribute the request using ribbon
+    public RestTemplate getRestTemplate() {
+	// This way we can set the time out into Rest Template
+	final HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
+	clientHttpRequestFactory.setConnectTimeout(3000);
+//	restTemplate.getInterceptors().add(new BasicAuthorizationInterceptor("user", "user"));
+	return new RestTemplate(clientHttpRequestFactory);
+
+    }
+
+    public static void main(String[] args) {
+	SpringApplication.run(BookCatalogServiceApplication.class, args);
+    }
 
 }

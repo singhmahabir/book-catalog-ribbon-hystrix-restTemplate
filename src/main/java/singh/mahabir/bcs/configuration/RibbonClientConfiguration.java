@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * This class is required when we are not using eureka server
- * 
+ *
  * we have two way to configure the client like below
- * 
+ *
  * But in latest version of spring.cloud like this even this configuration is
  * not required
- * 
+ *
  * @author Mahabir Singh
  *
  */
